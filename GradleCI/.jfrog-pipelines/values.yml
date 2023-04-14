@@ -1,9 +1,9 @@
 ## This string will prefix the resources and pipeline, allowing you to add
 ## the pipeline source multiple times with unique names.
-namePrefix: sample
+namePrefix: hk_sample_gradle
 
 ## The name of your Artifactory integration
-artIntegration: myArtIntegrationName
+artIntegration: hk_artifctory
 
 ##### Artifactory Build Info
 ## set this to `true` to publish a build
@@ -17,9 +17,9 @@ artIntegration: myArtIntegrationName
 
 ##### Repository Details
 repo:
-  path: org/repo
-  gitIntegration: myGitIntegration
-  branchPattern: "^main$"
+  path: harshkumar1/jfrog-pipelines-samples
+  gitIntegration: hk_github_sample
+  branchPattern: "*"
 
 ##### Gradle configuration
 gradleConfig:
