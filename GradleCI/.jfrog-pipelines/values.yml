@@ -19,7 +19,7 @@ artIntegration: hk_artifctory
 repo:
   path: harshkumar1/jfrog-pipelines-samples
   gitIntegration: hk_github_sample
-  branchPattern: *
+  branchPattern: equans-samples
 
 ##### Gradle configuration
 gradleConfig:
