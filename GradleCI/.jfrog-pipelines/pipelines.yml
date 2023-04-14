@@ -1,3 +1,5 @@
+valuesFilePath: ./values.yml
+
 resources:
   - name: {{ .Values.namePrefix }}_repo
     type: GitRepo
