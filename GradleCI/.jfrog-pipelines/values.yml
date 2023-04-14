@@ -19,13 +19,13 @@ artIntegration: hk_artifctory
 repo:
   path: harshkumar1/jfrog-pipelines-samples
   gitIntegration: hk_github_sample
-  branchPattern: *
+  branchPattern: "*"
 
 ##### Gradle configuration
 gradleConfig:
   ## Here you specify the command to execute
   ## it is executed as `gradle command `
-  command: hello
+  command: "hello"
   sourceLocation: "."
   ## These repositories must first be created in Artifactory.
   ## The resolver is used to resolve dependencies. It is recommended to
