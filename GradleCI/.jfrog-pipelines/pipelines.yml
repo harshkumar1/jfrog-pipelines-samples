@@ -68,6 +68,10 @@ pipelines:
         {{ end }}
       {{ if .Values.publishBuild }}
         execution:
+          onStart:
+            - cd res_${{ .Values.namePrefix }}_repo_resourcePath
+            - ls -la
+            - pwd
           onSuccess:
             - write_output {{ .Values.namePrefix }}_spec buildName="${JFROG_CLI_BUILD_NAME}"
             - write_output {{ .Values.namePrefix }}_spec buildNumber="${JFROG_CLI_BUILD_NUMBER}"
