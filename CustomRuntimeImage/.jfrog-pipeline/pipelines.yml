@@ -1,0 +1,38 @@
+resources:
+  - name: custom_runtime_repo
+    type: GitRepo
+    configuration:
+      gitProvider: Github
+      path: harshkumar1/jfrog-pipelines-samples
+
+pipelines:
+  - name: run_tests_within_docker
+    steps:
+      - name: docker_version_check_old
+        type: Bash
+        configuration:
+          inputResources:
+            - name: custom_runtime_repo
+          runtime:
+            type: image
+            image:
+              custom:
+                name: releases-docker.jfrog.io/jfrog/pipelines-u18java
+                tag: 17
+        execution:
+          onExecute:
+            - docker version
+      - name: docker_version_check_new
+        type: Bash
+        configuration:
+          inputResources:
+            - name: custom_runtime_repo
+          runtime:
+            type: image
+            image:
+              custom:
+                name: pipelines.jfrog.io/pipelines-runtime-images/pipelines-u18java-latest-docker
+                tag: 1
+        execution:
+          onExecute:
+            - docker version
