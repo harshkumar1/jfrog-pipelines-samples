@@ -2,7 +2,7 @@ resources:
   - name: custom_runtime_repo
     type: GitRepo
     configuration:
-      gitProvider: Github
+      gitProvider: hk_github
       path: harshkumar1/jfrog-pipelines-samples
 
 pipelines:
