@@ -32,7 +32,7 @@ pipelines:
             image:
               custom:
                 name: pipelines.jfrog.io/pipelines-runtime-images/pipelines-u18java-latest-docker
-                tag: "1"
+                tag: "2"
         execution:
           onExecute:
             - docker version
