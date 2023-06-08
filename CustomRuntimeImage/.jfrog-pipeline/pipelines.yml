@@ -6,7 +6,7 @@ resources:
       path: harshkumar1/jfrog-pipelines-samples
 
 pipelines:
-  - name: run_tests_within_docker
+  - name: CustomRuntimeImage
     steps:
       - name: docker_version_check_old
         type: Bash
