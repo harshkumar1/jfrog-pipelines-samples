@@ -3,7 +3,7 @@ resources:
     type: GitRepo
     configuration:
       gitProvider: hk_github
-      path: harshkumar1/jfrog-pipelines-samples
+      path: harshkumar1/Java-Mvn-Docker
       branches:
         include: .*
         exclude: main
