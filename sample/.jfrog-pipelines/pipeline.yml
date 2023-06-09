@@ -1,0 +1,47 @@
+resources:
+  - name: nantum_sdk_repo_prerelease
+    type: GitRepo
+    configuration:
+      gitProvider: hk_github
+      path: harshkumar1/jfrog-pipelines-samples
+      branches:
+        include: .*
+        exclude: main
+      pullRequestSourceBranches:
+        exclude: .*
+      pullRequestTargetBranches:
+        exclude: .*
+pipelines:
+  - name: npm_nantum_sdk_ci
+    steps:
+      - name: npm_publish
+        type: Bash
+        configuration:
+          integrations:
+            - name: hk_artifactory
+          inputResources:
+            - name: nantum_sdk_repo_prerelease
+          environmentVariables:
+            VersionBump:
+              default: prerelease
+              description: Type of version bump to perform
+              values:
+                - preminor
+                - premajor
+                - prepatch
+                - prerelease
+        execution:
+          onExecute:
+            - pushd $res_nantum_sdk_repo_prerelease_resourcePath
+            - echo $res_nantum_sdk_repo_branchName
+            #- rm package-lock.json
+            #- npm config set registry https://prescriptivedata.jfrog.io/artifactory/api/npm/nantum-npm-virtual/
+            #- curl -u"${int_artifactory_user}":"${int_artifactory_apikey}" "${int_artifactory_url}/api/npm/auth" >> ~/.npmrc
+            #- npm install -g ts-node
+            #- npm i --save-dev @types/node
+            #- npm run bump-version:prerelease $VersionBump $res_nantum_sdk_repo_branchName $run_id -- --pipeline --noCommit
+            #- npm install
+            #- npm run lint
+            #- npm run test
+            #- npm audit
+            #- npm run publish
